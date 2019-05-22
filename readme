@@ -1,0 +1,32 @@
+Usage:
+	Server: ./newSever
+	Client: telnet ip portno
+
+Description:
+	This is an RPC server which either executes the given command or reads the file given, based on the given INPUT
+	Input should be: 		EXEC command
+					READ filename
+					EXIT
+
+Example:
+	./newServer
+	EXEC ls ~/
+	** displays list of files and directories present in HOME directory.**
+	READ /home/user/dir/files.txt
+	** displays the contents of text files **
+
+Test Cases:
+	Initial test case was reading the source Code which ran without any problem.
+	
+	After connecting the client with the server, 
+	I tested the following:
+			1) READ newServer.java
+			2) EXEC ipconfig
+			3) EXEC ping google.com
+			
+	But when executing 'dir' Command I found a problem. I found out the reason that dir runs only through cmd
+	application, but others mentioned above are stand alone. So i included "cmd.exec /c " to the commands so 
+	as to get output for all the commands.
+	
+	This program also identifies Invalid commands, programs and Invalid filenames, commands in EXEC and READ commands 
+	respectively.
